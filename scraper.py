@@ -3,6 +3,7 @@ import requests,csv,schedule,time
 rows = []
 fund_lists = [ '515050','159995','001643','001102','519674','000480','001712','260108','002803','519193','003745','161903','007119','519068']
 stock_lists = ['sz002460','sh603960','sh600345','sz000975','sh601168']
+# 当前想要获取的股票和基金信息
 
 def fund(ID):
     url = 'https://api.doctorxiong.club/v1/{type}?code={ID}'
@@ -35,9 +36,8 @@ def stock(ID):
     print(row)
     rows.append(row)
 
-
-for i in rows:
-    sheet.append(i)
+# 接入股票和基金线上提供的api，通过js的方法读取数据
+# 网站原网址 https://www.doctorxiong.club/api/
 
 def create_csv():
     path = "aa.csv"
@@ -48,6 +48,9 @@ def create_csv():
         for i in rows:
             csv_list = [i[0],i[1],i[2],i[3]]
             csv_write.writerow(csv_list)
+
+#记录并且创建csv文件
+
 def main():
     for stock_list in stock_lists:
         print(stock_list)
@@ -64,3 +67,4 @@ schedule.every().day.at("06:20").do(main)
 while True:
     schedule.run_pending()
     time.sleep(1)
+# 每天早上6点20自动运行代码

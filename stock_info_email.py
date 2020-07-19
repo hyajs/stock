@@ -4,9 +4,9 @@ from email.header import Header
 from email.mime.multipart import MIMEMultipart
 from email.mime.application import MIMEApplication
 
-account = '605264108@qq.com'
+account = '@qq.com'
 password = 'akdfvpguwzerbbgf'
-receiver = '605264108@qq.com'
+receiver = '@qq.com'
 filename = 'aa.csv'
 def send_email():
     qqmail = smtplib.SMTP_SSL("smtp.qq.com", 465)  # 邮件服务器及端口号
@@ -39,3 +39,5 @@ schedule.every().day.at("06:30").do(job)
 while True:
     schedule.run_pending()
     time.sleep(1)
+
+# 每天早上630自动运行该代码，接入qq代码发送邮件。初级服务器运行 ：D
