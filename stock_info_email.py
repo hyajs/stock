@@ -4,8 +4,9 @@ from email.header import Header
 from email.mime.multipart import MIMEMultipart
 from email.mime.application import MIMEApplication
 
+
 account = '@qq.com'
-password = 'akdfvpguwzerbbgf'
+password = 'qq邮箱设置上有'
 receiver = '@qq.com'
 filename = 'aa.csv'
 def send_email():
@@ -16,7 +17,7 @@ def send_email():
     subject = Header('今日股票信息', 'utf-8').encode()
     msg["Subject"] = subject  # 指定邮件主题
     msg["From"] = account  # 邮件发送人
-    msg["To"] = '605264108@qq.com'  # 邮件接收人，如果存在多个收件人，可用join连接
+    msg["To"] = '自己改'
     msg.attach(MIMEText('附件今日股票信息，请查收!', _subtype='html', _charset='utf-8'))
     part = MIMEApplication(open(filename, 'rb').read())
     part.add_header('Content-Disposition', 'attachment',filename=filename)
