@@ -80,6 +80,6 @@ def job():
 # collection.insert_one({"name":"rua"})
 myquery = {"lastYearGrowth" : {'$gt' : 50}}
 # myquery = {"code" : '006345'}
-results = collection.find(myquery).sort('lastYearGrowth', pymongo.DESCENDING)
+results = collection.find().sort('lastYearGrowth', pymongo.DESCENDING)
 for x in results:
     print(x)
